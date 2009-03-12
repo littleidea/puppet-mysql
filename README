@@ -1,0 +1,7 @@
+This is just a fast and dirty install of MySQL using the package manager.
+
+Only tested on Ubuntu 8.10
+
+leave the default password (only vulnerable from the localhost... shrug)
+
+feel free to 'fix' it
