@@ -5,14 +5,14 @@ define mysql::database($ensure) {
             exec { "Mysql: create $name db":
                     command => "/usr/bin/mysql --execute=\"CREATE DATABASE $name\";",
                     unless => "/usr/bin/mysql --execute=\"SHOW DATABASES;\" | grep '$name'",
-                    require => Package['mysql-client']
+                    require => Class['mysql']
             }
         }
         absent: {
             exec { "Mysql: drop $name db":
                     command => "/usr/bin/mysql --execute=\"DROP DATABASE $name\";",
                     onlyif => "/usr/bin/mysql --execute=\"SHOW DATABASES;\" | grep '$name'",
-                    require => Package['mysql-client']
+                    require => Class['mysql']
             }
         }
         default: {
